@@ -4,7 +4,7 @@
 
 <head>
 
-<title>Feature Tracking</title>
+<title>AR Feature Tracking System</title>
 
 <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
 
@@ -14,17 +14,35 @@
 
 <body>
 
-<h1>Feature Tracking Demo</h1>
+<div class="container">
+
+<h1>Web AR Feature Tracking System</h1>
+
+<p>Upload image → Generate features → Test AR</p>
 
 <input type="file" id="upload">
 
+<br><br>
+
 <button onclick="generate()">Generate Features</button>
 
-<button onclick="save()">Save Image</button>
+<button onclick="save()">Save Result</button>
 
 <br><br>
 
 <canvas id="canvas"></canvas>
+
+<br><br>
+
+<a href="ar.html">
+
+<button class="arbutton">
+Open AR Camera
+</button>
+
+</a>
+
+</div>
 
 <script src="script.js"></script>
 

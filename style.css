@@ -1,10 +1,28 @@
 body{
 
-font-family: Arial;
+font-family:Arial;
+
+background:#f0f2f5;
 
 text-align:center;
 
-background:#f4f4f4;
+}
+
+.container{
+
+background:white;
+
+width:700px;
+
+margin:auto;
+
+padding:30px;
+
+margin-top:50px;
+
+border-radius:10px;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 
 }
 
@@ -13,5 +31,35 @@ canvas{
 border:2px solid black;
 
 margin-top:20px;
+
+}
+
+button{
+
+background:#007bff;
+
+color:white;
+
+border:none;
+
+padding:10px 20px;
+
+margin:5px;
+
+border-radius:5px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#0056b3;
+
+}
+
+.arbutton{
+
+background:#28a745;
 
 }

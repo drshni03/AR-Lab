@@ -1,6 +1,6 @@
 function generate(){
 
-let file = document.getElementById("upload").files[0];
+let file=document.getElementById("upload").files[0];
 
 if(!file){
 
@@ -10,9 +10,9 @@ return;
 
 }
 
-let img = new Image();
+let img=new Image();
 
-img.src = URL.createObjectURL(file);
+img.src=URL.createObjectURL(file);
 
 img.onload=function(){
 
@@ -32,29 +32,28 @@ let gray=new cv.Mat();
 
 cv.cvtColor(src,gray,cv.COLOR_RGBA2GRAY);
 
-let keypoints=new cv.KeyPointVector();
-
 let orb=new cv.ORB();
+
+let keypoints=new cv.KeyPointVector();
 
 orb.detect(gray,keypoints);
 
 cv.drawKeypoints(
+
 gray,
 keypoints,
 src,
 [255,0,0,255]
+
 );
 
 cv.imshow('canvas',src);
 
 src.delete();
-
 gray.delete();
-
 keypoints.delete();
 
 }
-
 }
 
 function save(){
@@ -63,7 +62,7 @@ let canvas=document.getElementById("canvas");
 
 let link=document.createElement('a');
 
-link.download="features.png";
+link.download="feature_result.png";
 
 link.href=canvas.toDataURL();
 
