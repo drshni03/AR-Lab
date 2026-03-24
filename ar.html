@@ -14,22 +14,47 @@
 
 <body style="margin:0">
 
-<a-scene embedded arjs>
+<a-scene embedded arjs='debugUIEnabled: true;'>
 
-<a-marker preset="hiro">
+<!-- Marker 1 -->
+
+<a-marker type="pattern" url="markers/pattern-marker1.patt">
 
 <a-box 
 position="0 0.5 0"
-material="color:red">
+scale="1.5 1.5 1.5"
+color="red">
 </a-box>
 
-<a-sphere
-position="1 0.5 0"
-radius="0.3"
+</a-marker>
+
+
+<!-- Marker 2 -->
+
+<a-marker type="pattern" url="markers/pattern-marker2.patt">
+
+<a-sphere 
+position="0 0.5 0"
+radius="0.5"
 color="blue">
 </a-sphere>
 
 </a-marker>
+
+
+<!-- Marker 3 -->
+
+<a-marker type="pattern" url="markers/pattern-marker3.patt">
+
+<a-cylinder 
+position="0 0.5 0"
+radius="0.4"
+height="1"
+color="green">
+</a-cylinder>
+
+</a-marker>
+
 
 <a-entity camera></a-entity>
 
