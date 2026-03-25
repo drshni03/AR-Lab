@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-Based AR Feature Tracking System</title>
-    <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
+    <script src="https://docs.opencv.org/4.x/opencv.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,7 +14,7 @@
             <h1>WEB-BASED AR FEATURE TRACKER</h1>
             <p><strong>Instructions</strong><br>
                 1. Upload an RGB image. <br>
-                2. Generate grayscale features and tracking points. <br>
+                2. Generate grayscale image and detect features. <br>
                 3. Save and export the processed image. <br>
                 4. Print the original image in color on A4 paper as your marker. <br>
                 5. Launch AR and point your camera at the marker to see the 3D object. <br>
@@ -22,7 +22,7 @@
         </header>
 
         <section class="controls">
-            <input type="file" id="upload" accept="image/*">
+            <input type="file" id="upload" accept="image/*" onchange="previewImage(event)">
             <div class="button-group">
                 <button onclick="generate()">Generate Features</button>
                 <button onclick="save()" style="background-color: #9e476a;">Save Result</button>
@@ -31,11 +31,14 @@
 
         <section class="preview">
             <canvas id="canvas"></canvas>
+            <p id="status">
+                Waiting for image upload...
+            </p>
         </section>
 
         <section class="navigation">
             <a href="ar.html">
-                <button class="arbutton">Launch AR</button>
+                <button class="arbutton">Launch AR Scene</button>
             </a>
         </section>
     </div>
