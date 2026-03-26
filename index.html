@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,37 +9,40 @@
 
 <body>
     <div class="container">
-        <header>
-            <h1>WEB-BASED AR FEATURE TRACKER</h1>
-            <p><strong>Instructions</strong><br>
-                1. Upload an RGB image. <br>
-                2. Generate grayscale image and detect features. <br>
-                3. Save and export the processed image. <br>
-                4. Print the original image in color on A4 paper as your marker. <br>
-                5. Launch AR and point your camera at the marker to see the 3D object. <br>
-            </p>
-        </header>
+        <h1>WEB-BASED AR FEATURE TRACKER</h1>
+        <p><strong>Instructions</strong><br>
+            1. Upload an RGB image. <br>
+            2. Generate grayscale image and detect features. <br>
+            3. Save and export the processed image as your marker. <br>
+            4. Print the marker image on A4 paper. <br>
+            5. Launch AR and point your camera at the marker to see the 3D object. <br>
+            <strong>Note:</strong> The AR scene uses the marker image you saved - point your camera at the printed marker!
+        </p>
 
         <section class="controls">
             <input type="file" id="upload" accept="image/*" onchange="previewImage(event)">
             <div class="button-group">
-                <button onclick="generate()">Generate Features</button>
-                <button onclick="save()" style="background-color: #9e476a;">Save Result</button>
+                <button onclick="generateFeatures()">Detect Features</button>
+                <button onclick="saveMarker()" style="background-color: #9e476a;">Save as Marker</button>
+                <button onclick="resetImage()" style="background-color: #6c757d;">Reset</button>
             </div>
         </section>
 
         <section class="preview">
             <canvas id="canvas"></canvas>
-            <p id="status">
-                Waiting for image upload...
-            </p>
+            <div id="status">
+                <p>Waiting for image upload...</p>
+            </div>
         </section>
 
         <section class="navigation">
-            <a href="ar.html">
-                <button class="arbutton">Launch AR Scene</button>
-            </a>
+            <button id="arLaunchBtn" class="arbutton" onclick="prepareAndLaunchAR()" disabled>
+                Launch AR Scene
+            </button>
         </section>
+
+        <br>
+        <f>Created By: Kristine Elle Benjamin & Uthaya Darshni A/P Prakash</f>
     </div>
 
     <script src="script.js"></script>

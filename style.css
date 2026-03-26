@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #728e9f, #ffb1b1);
+    background: linear-gradient(135deg, #667eea 0%, #f795bc 100%);
     background-attachment: fixed;
     min-height: 100vh;
     display: flex;
@@ -16,45 +16,71 @@ body {
 }
 
 .container {
-    background: rgba(255, 244, 244, 0.9);
+    background: rgba(249, 243, 243, 0.95);
     backdrop-filter: blur(10px);
     width: 90%;
-    max-width: 750px;
-    padding: 40px;
+    max-width: 850px;
+    padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
     text-align: center;
+    margin: 20px;
 }
 
 h1 {
     font-family: "Times New Roman", Times, serif;
     font-weight: 700;
-    margin-bottom: 10px;
-    color: #511d34;
+    margin-bottom: 15px;
+    color: #5a2d3c;
+    font-size: 1.8rem;
 }
 
 p {
-    font-size: 12px;
-    color: #5d4c4c;
+    font-size: 13px;
+    color: #6c5b5b;
     margin-bottom: 25px;
+    text-align: center;
 }
 
-input[type="file"] {
-    background: rgba(255, 244, 244, 0.9);
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px dashed #634343;
-    width: 50%;
+f {
+    font-size: 10px;
+    color: #6c5b5b;
+    text-align: center;
+}
+
+.controls {
     margin-bottom: 20px;
 }
 
-canvas {
+input[type="file"] {
+    background: rgba(249, 243, 243, 0.95);
+    padding: 12px;
     border-radius: 8px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    max-width: 100%;
+    border: 2px dashed #9b59b6;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    border-color: #56150d;
+    background: #fef9f9;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+canvas {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     height: auto;
     margin-top: 20px;
+    background: white;
 }
 
 button {
@@ -67,12 +93,12 @@ button {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(38, 2, 83, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
@@ -80,27 +106,91 @@ button:active {
 }
 
 button:not(.arbutton) {
-    background: #4a90e2;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
 
 button:not(.arbutton):hover {
-    background: #357abd;
+    background: linear-gradient(135deg, #5a67d8 0%, #6c3c9a 100%);
 }
 
 .arbutton {
-    background: #2ecc71;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     color: white;
-    width: 60%;
-    margin-top: 20px;
-    font-size: 16px;
+    width: 80%;
+    margin-top: 2px;
+    font-size: 18px;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
-.arbutton:hover {
-    background: #27ae60;
+.arbutton:hover:not(:disabled) {
+    background: linear-gradient(135deg, #e07cf0 0%, #e3455a 100%);
+    transform: translateY(-3px);
+}
+
+.arbutton:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
 }
 
 a {
     text-decoration: none;
+}
+
+#status {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    min-height: 80px;
+}
+
+#status p {
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+.navigation {
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    button {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+    
+    .arbutton {
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+    
+    button:not(.arbutton) {
+        width: 100%;
+    }
+}
+
+/* Animation for loading states */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.loading {
+    animation: pulse 1s ease-in-out infinite;
 }
